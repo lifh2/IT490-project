@@ -8,17 +8,20 @@ function doLogin($username,$password)
 {
     // lookup username in databas
     // check password
-    return true;
+	return true;
+	echo "login function";
+	echo "\n";
     //return false if not valid
 }
-echo"login is above";
-echo"\n";
+
+
 
 
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
   var_dump($request);
+  
   if(!isset($request['type']))
   {
     return "ERROR: unsupported message type";
@@ -30,18 +33,19 @@ function requestProcessor($request)
   {
     case "login":
 	    return doLogin($request['username'],$request['password']);
+	    echo "login case has run";
 	    
 
     case "validate_session":
       return doValidate($request['sessionId']);
   }
-  return "Hello Client";
+  
   return array("returnCode" => '0', 'message'=>"Server received request and processed. and complete.");
-  echo "requests done";
+  echo "return array has sent";
 }
 
 
-echo "request processor is above";
+echo "request processor function has ran";
 echo "\n";
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
