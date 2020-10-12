@@ -11,11 +11,13 @@ function doLogin($username,$password)
 	
 	//lookup username in database
 	// check password
-	$SQLServer = "10.192.234.195";//sifaw's IP
-	$SQL_U = "testuser";
+	$SQLServer = "10.192.234.170";//sifaw's IP
+	$SQL_U = "admin";
 	$SQL_P = "12345";
+	$SQL_DBname = "testdb";//databse name
 
-	$SQL_conn  = new mysqli($SQLServer, $SQL_U, $SQL_P);
+	
+	$SQL_conn  = new mysqli($SQLServer, $SQL_U, $SQL_P, $SQL_DBname);
 
 	if($SQL_conn->connect_error){
 		die("conn failed: " . $SQL_conn->connect_error);
@@ -23,7 +25,7 @@ function doLogin($username,$password)
 	echo "Conn succ";
 	echo "\n";
 	
-	$checkUser = "SELECT COUNT(1) FROM users WHERE username = '$username'";
+	$checkUser = "SELECT COUNT(1) FROM Users WHERE username = '$username'";
 	//$checkPass = "SELECT COUNT(1) FROM users WHERE password=test";
 
 	$r=mysql_query($checkUser);
@@ -53,11 +55,12 @@ function doRegister($username, $password){
 	echo "\n";
 
 	//connect to db
-	$SQLServer = "10.192.234.195\\testdb";//sifaw's IP
-	$SQL_U = "testuser";
+	$SQLServer = "10.192.234.170";//sifaw's IP
+	$SQL_U = "admin";
 	$SQL_P = "12345";
+	$SQL_DBname = "testdb";
 
-	$SQL_conn  = new mysqli($SQLServer, $SQL_U, $SQL_P);
+	$SQL_conn  = new mysqli($SQLServer, $SQL_U, $SQL_P, $SQL_DBname);
 
 	if($SQL_conn->connect_error){
 		die("conn failed: " . $SQL_conn->connect_error);
