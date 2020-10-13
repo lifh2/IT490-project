@@ -9,11 +9,17 @@ echo "\n";
 
 function getInfo($request)
 {
-	echo "displaying request".PHP_EOL;
-	var_dump($request);
+	//echo "displaying request".PHP_EOL;
+	//var_dump($request);
 
 	echo "Log:";
-	echo $request;
+	print_r($request);
+}
+
+function dataStream($request)
+{
+	echo "dataStream function is running";
+	
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini", "testServer");
@@ -21,7 +27,15 @@ $server = new rabbitMQServer("testRabbitMQ.ini", "testServer");
 echo "new sever instance made";
 echo "\n";
 
+$server->process_requests('getInfo');
 
+echo "ran the process_requests function";
+echo "\n";
+
+$server->dataStream($request);
+echo $water;
+echo "ran the printing the water  function";
+echo "\n";
 
 
 ?>
