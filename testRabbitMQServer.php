@@ -11,74 +11,15 @@ function doLogin($username,$password)
 	
 	//lookup username in database
 	// check password
-	$SQLServer = "10.192.234.170";//sifaw's IP
-	$SQL_U = "admin";
-	$SQL_P = "12345";
-	$SQL_DBname = "testdb";//databse name
-
-	
-	$SQL_conn  = new mysqli($SQLServer, $SQL_U, $SQL_P, $SQL_DBname);
-
-	if($SQL_conn->connect_error){
-		die("conn failed: " . $SQL_conn->connect_error);
-	}
-	echo "Conn succ";
-	echo "\n";
-	
-	$checkUser = "SELECT COUNT(1) FROM Users WHERE username = '$username'";
-	//$checkPass = "SELECT COUNT(1) FROM users WHERE password=test";
-
-	$r=mysql_query($checkUser);
-	$row = mysql_fetch_row($r);
-
-
-	if($row[0] >= 1){
-		return true;
-		echo "checked the db and user exists";
-		echo "\n";
-	}
-	else
-	{
-		echo "no record found";
-		echo "\n";
-		return false;
-	}
 
 	//return true;
-	echo "login function";
-	echo "\n";
+	return true;
     //return false if not valid
 }
 
 function doRegister($username, $password){
 	echo "regi has started";
 	echo "\n";
-
-	//connect to db
-	$SQLServer = "10.192.234.170";//sifaw's IP
-	$SQL_U = "admin";
-	$SQL_P = "12345";
-	$SQL_DBname = "testdb";
-
-	$SQL_conn  = new mysqli($SQLServer, $SQL_U, $SQL_P, $SQL_DBname);
-
-	if($SQL_conn->connect_error){
-		die("conn failed: " . $SQL_conn->connect_error);
-	}
-	echo "Conn succ";
-	echo "\n";
-	$regi_user = "INSERT INTO Users (username, password) VALUES ('$username', '$password');";
-	echo "regi_user queue has been created and sent to db";
-	if($conn->query($regi_user) === TRUE){
-		//checks if user has been added
-		echo "new user has been added";
-		echo "\n";
-	}
-	else
-	{
-		echo "ERROR!: " . $regi_user . "<br>" . $conn->error;
-		echo "\n";
-	}
 }
 
 
