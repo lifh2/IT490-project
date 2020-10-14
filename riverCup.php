@@ -22,6 +22,8 @@ function dataStream($request)
 	
 }
 
+
+
 $server = new rabbitMQServer("testRabbitMQ.ini", "testServer");
 
 echo "new sever instance made";
@@ -32,9 +34,9 @@ $server->process_requests('getInfo');
 echo "ran the process_requests function";
 echo "\n";
 
-$server->dataStream($request);
-echo $water;
-echo "ran the printing the water  function";
+$server->process_message($request);
+
+echo "ran the process_message function";
 echo "\n";
 
 
