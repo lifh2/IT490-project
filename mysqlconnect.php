@@ -1,9 +1,9 @@
 #!/usr/bin/php
 <?php
 
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
+//require_once('path.inc');
+//require_once('get_host_info.inc');
+//require_once('rabbitMQLib.inc');
 //you are in Server
 
 $mydb = new mysqli('127.0.0.1','testuser','12345','testdb');
