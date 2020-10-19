@@ -8,18 +8,8 @@ function doLogin($username,$password)
 {
 	echo "doLogin funtion has started";
 	echo "\n";
-
-	//making a client to send data
-	echo "new client to send is being created";
-	$client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
-
-	$response = $client->send_request($username, $password);
-
-	echo "sending to SQLDB...";
-
-	print_r($response);
 	
-		
+	//lookup username in database
 	// check password
 
 	//return true;
