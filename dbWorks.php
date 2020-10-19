@@ -10,7 +10,7 @@ require_once('mysqlConnect.php');
 
 function doLogin($username, $pass){
    $db = dbconnect();
-   $query = "select password from users where username = '$username';";
+   $query = "select * from users where username = '$username'and '$pass';";
    $response = $db->query($query);
    $numrows = mysqli_num_rows($response);
    echo "num of rows returned: ". $numrows . "\n";
@@ -18,7 +18,7 @@ function doLogin($username, $pass){
   // printf("print this array: \n", $resArray);
    
    if ($numrows > 0){
-      if(password_verify($pass, $resArray['password'])){
+      //if(password_verify($pass, $resArray['password'])){
          echo "login is verified \n";
          return  true;
       }
@@ -34,17 +34,17 @@ function doLogin($username, $pass){
    }
 }
 
-// $uname = "ali";
-// $pw = "1235";
+// $uname = "test";
+// $pw = "test";
 // doLogin($uname, $pw);
 
 function doSignup($username, $password){
-	$hash = password_hash($password, PASSWORD_DEFAULT);
+	//$hash = password_hash($password, PASSWORD_DEFAULT);
 	//echo "$password". " :"."$hash". "\n";
 
-        $key = md5(time().$username);
+        //$key = md5(time().$username);
         $db = dbconnect();
-	$query = "INSERT INTO users (username, password) VALUES ('$username', '$hash');";
+	$query = "INSERT INTO users (username, password) VALUES ('$username', '$password');";
         if (mysqli_query($db, $query))
         {
                 echo "User has successfully registered \n";
