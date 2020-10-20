@@ -10,31 +10,31 @@ function doLogin($username,$password)
 	echo "\n";
 
 	//making a client to send data
-	echo "new client to send is being created";
-	echo "\n";
-	$client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
+	//echo "new client to send is being created";
+	//echo "\n";
 	
-	//var dumping $request
-	//var_dump($request);
+	//$client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
+	
 	//setting up vari for gotInfo --> SentInfo
 	
 
 
-	$sentInfo = array($username,$password);
-	//$response = $client->send_request($sentInfo);
-
-	print_r($sentInfo);
-	echo "\n";
-
-
-	echo "Message:";
-	echo "\n";
-	$response = $client->publish($sentInfo);
-	echo "sending to SQLDB...";
-	echo "\n";
-
-	print_r($response);
+	//$sentInfo = array($username,$password);
 	
+
+	//print_r($sentInfo);
+	//echo "\n";
+
+
+	//echo "Message:";
+	//echo "\n";
+	//$response = $client->publish($sentInfo);
+	//echo "sending to SQLDB...";
+	//echo "\n";
+
+	//print_r($response);
+	//echo"received response from SQLDB";
+	//echo"\n";
 		
 	// check password
 
@@ -54,9 +54,22 @@ function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
   var_dump($request);
-  //$client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
 
-  //$client->send_request($request);
+  echo "creating new client";
+  echo "\n";
+  $client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
+
+  $sentInfo = array($request);
+  echo"what is is SentInfo:";
+
+  print_r($sentInfo);
+
+  echo"creating sender";
+  $response = $client->send_request($sentInfo);
+
+  echo "what is being sent:";
+  print_r($response);
+
   echo"sending from inside requestProcessor";
   echo"\n";
 
