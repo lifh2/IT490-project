@@ -11,11 +11,27 @@ function doLogin($username,$password)
 
 	//making a client to send data
 	echo "new client to send is being created";
+	echo "\n";
 	$client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
+	
+	//var dumping $request
+	//var_dump($request);
+	//setting up vari for gotInfo --> SentInfo
+	
 
-	$response = $client->send_request($username, $password);
 
+	$sentInfo = array($username,$password);
+	//$response = $client->send_request($sentInfo);
+
+	print_r($sentInfo);
+	echo "\n";
+
+
+	echo "Message:";
+	echo "\n";
+	$response = $client->publish($sentInfo);
 	echo "sending to SQLDB...";
+	echo "\n";
 
 	print_r($response);
 	
@@ -38,6 +54,12 @@ function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
   var_dump($request);
+  //$client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
+
+  //$client->send_request($request);
+  echo"sending from inside requestProcessor";
+  echo"\n";
+
  // echo $request['backtalk'];
   
   if(!isset($request['type']))
@@ -76,6 +98,10 @@ echo"new server instance has been made";
 echo"\n";
 
 $server->process_requests('requestProcessor');
+echo "\n";
+//echo "packaging recieved data to be shipped";
+//echo "\n";
+
 
 echo"running process_requests";
 echo"\n";
