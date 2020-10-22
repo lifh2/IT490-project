@@ -65,7 +65,7 @@ function requestProcessor($request)
   print_r($sentInfo);
 
   echo"creating sender";
-  $response = $client->send_request($sentInfo);
+  $response = $client->send_request($request);
 
   echo "what is being sent:";
   print_r($response);
