@@ -61,14 +61,21 @@ function requestProcessor($request)
 
   $sentInfo = array($request);
   echo"what is is SentInfo:";
+  echo"\n";
 
   print_r($sentInfo);
 
   echo"creating sender";
-  $response = $client->send_request($sentInfo);
+  echo"\n";
+  $response = $client->send_request($request);
 
-  echo "what is being sent:";
+  echo "Response from SQLDB";
+  echo "\n";
   print_r($response);
+
+  echo"message type of sent message: ";
+  print_r($request['type']);
+  echo"\n";
 
   echo"sending from inside requestProcessor";
   echo"\n";
@@ -94,8 +101,11 @@ function requestProcessor($request)
     case "validate_session":
       return doValidate($request['sessionId']);
   }
-  
-  return array("returnCode" => '1', 'message'=>"Server received request and processed. and complete.");
+
+
+  return array("returnCode" => '4', 'message'=>"Server received request and processed. and complete.");
+
+
   echo "return array has sent";
   echo "\n";
 }
