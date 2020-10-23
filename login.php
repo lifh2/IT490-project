@@ -1,4 +1,7 @@
 <?php
+<<<<<<< HEAD
+
+=======
 $username = $_GET ['username'] ;
 print "<br> username is: $username" ; 
 
@@ -36,6 +39,7 @@ SendLoginRequest($username,$password);
 //
 //return logic weather authenticion verified or not
 //print 
+>>>>>>> b277e6e699fe94283b33da41e560100062345f58
 
 if (!isset($_POST))
 {

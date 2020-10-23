@@ -8,34 +8,8 @@ function doLogin($username,$password)
 {
 	echo "doLogin funtion has started";
 	echo "\n";
-
-	//making a client to send data
-	//echo "new client to send is being created";
-	//echo "\n";
 	
-	//$client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
-	
-	//setting up vari for gotInfo --> SentInfo
-	
-
-
-	//$sentInfo = array($username,$password);
-	
-
-	//print_r($sentInfo);
-	//echo "\n";
-
-
-	//echo "Message:";
-	//echo "\n";
-	//$response = $client->publish($sentInfo);
-	//echo "sending to SQLDB...";
-	//echo "\n";
-
-	//print_r($response);
-	//echo"received response from SQLDB";
-	//echo"\n";
-		
+	//lookup username in database
 	// check password
 
 	//return true;
@@ -54,25 +28,6 @@ function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
   var_dump($request);
-
-  echo "creating new client";
-  echo "\n";
-  $client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
-
-  $sentInfo = array($request);
-  echo"what is is SentInfo:";
-
-  print_r($sentInfo);
-
-  echo"creating sender";
-  $response = $client->send_request($request);
-
-  echo "what is being sent:";
-  print_r($response);
-
-  echo"sending from inside requestProcessor";
-  echo"\n";
-
  // echo $request['backtalk'];
   
   if(!isset($request['type']))
@@ -111,10 +66,6 @@ echo"new server instance has been made";
 echo"\n";
 
 $server->process_requests('requestProcessor');
-echo "\n";
-//echo "packaging recieved data to be shipped";
-//echo "\n";
-
 
 echo"running process_requests";
 echo"\n";
