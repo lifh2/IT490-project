@@ -8,7 +8,8 @@ require_once('mysqlConnect.php');
  
 //Validate user logins
 
-function doLogin($username, $pass){
+function doLogin($username, $pass)
+{
    $db = dbconnect();
    $query = "select * from users where username = '$username'and '$pass';";
    $response = $db->query($query);
@@ -17,21 +18,18 @@ function doLogin($username, $pass){
    $resArray = $response -> fetch_assoc();
   // printf("print this array: \n", $resArray);
    
-   if ($numrows > 0){
+   if ($numrows > 0)
+   {
       //if(password_verify($pass, $resArray['password'])){
          echo "login is verified \n";
          return  true;
-      }
-      else
-      {
-         echo "Invalid inforamtion \n";
-         return false;
-      }
    }
    else
    {
-           return false;
+         echo "Invalid inforamtion \n";
+         return false;
    }
+   
 }
 
 // $uname = "test";
@@ -59,10 +57,6 @@ function doSignup($username, $password){
 // $newname="test";
 // $newpw= "test";
 //doSignup($newname,$newpw);
-
-//dbconnect();
-
-
 
 
 ?>

@@ -54,12 +54,19 @@ function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
   var_dump($request);
+  //puts recieved request into a useable array format but lmao apparently it doesnt need it
 
+  $sentInfo = array($request);
+  echo"got res from CLient-Apa";
+  echo "\n";
+
+  print_r($response);
+  
   echo "creating new client";
   echo "\n";
   $client = new rabbitMQClient("testRabbitMQ.ini", "SQLDB");
 
-  $sentInfo = array($request);
+  //$sentInfo = array($request);
   echo"what is is SentInfo:";
   echo"\n";
 
@@ -79,6 +86,7 @@ function requestProcessor($request)
 
   echo"sending from inside requestProcessor";
   echo"\n";
+ // $response = $client->publish($request);
 
  // echo $request['backtalk'];
   
@@ -103,8 +111,7 @@ function requestProcessor($request)
   }
 
 
-  return array("returnCode" => '4', 'message'=>"Server received request and processed. and complete.");
-
+  return array("returnCode" => '0', 'message'=>"Server received request and processed. and complete.");
 
   echo "return array has sent";
   echo "\n";
