@@ -11,7 +11,6 @@ function requestProcessor($request)
 {
 	echo "inside request processor";
 	var_dump($request);
-	$sentInfo = array($request);
 
         print_r($request['type']);
        	if(!isset($request['type']))
@@ -19,11 +18,20 @@ function requestProcessor($request)
 	       	return array('message'=> "ERROR: unsupported message type");
 	}
 	 
-	//logger($request);
 
 
 	switch($request['type'])
 	{
+		case "Data":
+                          var_dump($request);
+                          echo "data is found \n";
+			  print_r($request['name']);
+			  echo "\n";
+			  print_r($request['latestPrice']);
+			  
+                          break;
+
+
 		 case "login":
 			 echo "Login validation \n"; 
 		         if(doLogin($request['username'], $request['password']))
