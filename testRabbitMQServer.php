@@ -4,6 +4,14 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 //you are in Server
+
+//creating logger
+function traceLogger($request)
+{
+	echo "Logger is starting up";
+
+}
+
 function doLogin($username,$password)
 {
 	echo "doLogin funtion has started";
@@ -133,8 +141,10 @@ echo "\n";
 //echo "\n";
 
 
-echo"running process_requests";
+echo"calling the logger";
 echo"\n";
+traceLogger();
+
 exit();
 ?>
 
