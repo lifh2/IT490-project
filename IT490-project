@@ -6,11 +6,11 @@ require_once('/home/james/git/RMQ/path.inc');
 require_once('/home/james/git/RMQ/get_host_info.inc');
 require_once('/home/james/git/RMQ/rabbitMQLib.inc');
 
-
+$stock ="AAPL";
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-CURLOPT_URL => "https://rapidapi.p.rapidapi.com/stock/intc/book",
+CURLOPT_URL => "https://rapidapi.p.rapidapi.com/stock/".$stock."/book",
 CURLOPT_RETURNTRANSFER => true,
 CURLOPT_FOLLOWLOCATION => true,
 CURLOPT_ENCODING => "",
@@ -20,11 +20,15 @@ CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 CURLOPT_CUSTOMREQUEST => "GET",
 CURLOPT_HTTPHEADER => [
 "x-rapidapi-host: investors-exchange-iex-trading.p.rapidapi.com",
-"x-rapidapi-key: 636cd705b0msh003106b728cf3e3p101c47jsn97c7c0b4b786"
+"x-rapidapi-key: 636cd705b0msh003106b728cf3e3p101c47jsn97c7c0b4b786",
+"content-type: application/json"
 ],
 ]);
 
-$response = curl_exec($curl);
+//$re = curl_exec($curl);
+$response = json_decode(curl_exec($curl),True );
+
+
 $err = curl_error($curl);
 
 curl_close($curl);
@@ -32,11 +36,16 @@ curl_close($curl);
 if ($err) {
 echo "cURL Error #:" . $err;
 } else {
-echo $response;
+
+	$ticker = $response['quote']['symbol'];
+	$companyName = $response['quote']['companyName'];
+	$latestPrice = $response['quote']['latestPrice'];
+
+	echo "Stock: " . $ticker . "\n" ;
+	echo "Company Name: " .  $companyName . "\n";
+	echo "Latest Price: " . $latestPrice . "\n";
+
 }
-
-
-
 
 $client = new rabbitMQClient("testRabbitMQ.ini" , "SQLDB");
 
@@ -44,14 +53,12 @@ echo "client created";
 
 $request = array();
 
+$request['type'] = "Data";
+$request['ticker'] = $ticker;
+$request['name'] =  $companyName;
+$request['latestPrice'] = $latestPrice;
 
-$request['name'] = 'companyName';
-$request['latestPrice'] = 'latestPrice';
-$request['type'] = 'Data';
 print_r($request);
-
-
-
 
 $response = $client->send_request($request);
 print_r($response);
