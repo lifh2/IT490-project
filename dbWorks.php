@@ -1,17 +1,18 @@
 #!/usr/bin/php
 <?php
-/*require_once('path.inc');
+require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
-require_once('testRabbitMQClient.php'); */
 require_once('mysqlConnect.php');
- 
-//Validate user logins
 
-function doLogin($username, $pass)
-{
+
+
+////// Validate user logins //////
+
+function doLogin($username, $password){
    $db = dbconnect();
-   $query = "select * from users where username = '$username'and '$pass';";
+   
+   $query = "select * from users where username = '$username' and password='$password';";
    $response = $db->query($query);
    $numrows = mysqli_num_rows($response);
    echo "num of rows returned: ". $numrows . "\n";
@@ -20,7 +21,7 @@ function doLogin($username, $pass)
    
    if ($numrows > 0)
    {
-      //if(password_verify($pass, $resArray['password'])){
+      //if(password_verify($password, $resArray['password'])){
          echo "login is verified \n";
          return  true;
    }
@@ -29,12 +30,11 @@ function doLogin($username, $pass)
          echo "Invalid inforamtion \n";
          return false;
    }
-   
 }
 
-// $uname = "test";
-// $pw = "test";
-// doLogin($uname, $pw);
+
+
+//////// User Sign up function///////
 
 function doSignup($username, $password){
 	//$hash = password_hash($password, PASSWORD_DEFAULT);
@@ -54,9 +54,29 @@ function doSignup($username, $password){
         $db->close();
 }
 
-// $newname="test";
-// $newpw= "test";
-//doSignup($newname,$newpw);
+
+///// Function to insert API data into DB///////
+  
+function stockData($stockname, $price){
+
+	$db = dbconnect();
+	$query = "INSERT INTO stockDataLive (stockname, price, timestamp) VALUES ('$stockname', '$price', now());";
+        if (mysqli_query($db, $query))
+        {
+		echo "New stock data has been added to db \n";
+		return true;
+        }
+        else
+        {
+		echo "Error: " . $query . "<br>" . mysqli_error($db);
+		return false;
+        }
+        $db->close();
+
+
+}
+
+
 
 
 ?>
