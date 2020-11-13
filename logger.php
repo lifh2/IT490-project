@@ -3,7 +3,6 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
-require_once('dbWorks.php');
 
 
 //do a function that uploal logs to a local file
@@ -20,8 +19,14 @@ function errorlogger($msg)
 
 	error_log($ermsg);
 
+
+}
+
+
+function sendErrorLog($ermsg)
+{
         $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-        echo "new client is created to sent error to broker\n";
+        echo "new client is created to sent error to all other machines log listeners";
 
         $request = array();
         $request['type'] = "logger";
@@ -30,8 +35,10 @@ function errorlogger($msg)
         var_dump($request);
         $response = $client->send_request($request);
         echo "error request has been sent to broker";
-        print_r($respons);
+        print_r($response);
 
+
+	
 }
 
 ?>
