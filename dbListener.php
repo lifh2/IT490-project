@@ -30,7 +30,7 @@ function errorlogger($msg)
         var_dump($request);
         $response = $client->send_request($request);
         echo "error request has been sent to broker";
-        print_r($respons);
+        print_r($response);
 
 }
 
