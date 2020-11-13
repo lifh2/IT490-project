@@ -1,4 +1,8 @@
 <?php
+require_once('/home/luke/git/rabbitmqphp_example/path.inc');
+require_once('/home/luke/git/rabbitmqphp_example/get_host_info.inc');
+require_once('/home/luke/git/rabbitmqphp_example/rabbitMQLib.inc');
+
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 ini_set('display_errors' , 1);
@@ -8,9 +12,6 @@ ini_set('display_errors' , 1);
 function sendRequest()
 {
 
-require_once('/home/luke/git/rabbitmqphp_example/path.inc');
-require_once('/home/luke/git/rabbitmqphp_example/get_host_info.inc');
-require_once('/home/luke/git/rabbitmqphp_example/rabbitMQLib.inc');
 $username = $_GET ['username'] ;
 echo "<br> username is: $username" ;
 
@@ -27,27 +28,29 @@ $request['password'] = "$password";
 $request['message'] = "HI";
 $response = $client->send_request($request);
 echo "Client request sent!";
+var_dump($response);
+print_r($response['message']);
+echo "regway";
+print_r($response['returnCode']);
+$returnCode = $response["returnCode"];
+
 $response = $client->publish($request);
-
 echo "client received response: ";//.PHP_EOL;
-print_r($response);
+//print_r($response['returnCode']);
+//var_dump($response);
 echo "\n\n";
-$server = new rabbitMQServer("testRabbitMQ.ini", "APA");
-
-$server->processrequests('requestProcessor');
-}
-
-
-function requestProcessor($request)
+if($returnCode == 4)
 {
-  echo "received request".PHP_EOL;
-  var_dump($request);
-  if(!isset($request['type']))
-  {
-    return "ERROR: unsupported message type";
-  }
-  return array("returnCode" => '0', 'message'=>"Server received request and processed");
+	echo "Login successful";
+	print_r($returnCode);
+	//header('Location:' )
 }
+else
+{
+	echo "failed Login";
+}
+}
+
 
 sendRequest();
 ?>
