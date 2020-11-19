@@ -30,7 +30,7 @@ function errorlogger($msg)
         var_dump($request);
         $response = $client->send_request($request);
         echo "error request has been sent to broker";
-        print_r($response);
+        print_r($respons);
 
 }
 
@@ -68,9 +68,12 @@ function requestProcessor($request)
 
 		 case "login":
 			 echo "Login validation \n"; 
-		         if(doLogin($request['username'], $request['password']))
+
+
+
+			 if(doLogin($request['username'], $request['password']))
 			 {
-		$client = new rabbitMQClient("testRabbitMQ.ini","SQLDBR");
+	/*	$client = new rabbitMQClient("testRabbitMQ.ini","SQLDBR");
 				echo "new client is created \n";
 	
               			$reqtrue = array();
@@ -82,9 +85,16 @@ function requestProcessor($request)
 				$response = $client->send_request($reqtrue);
                                 echo "new request has been sent";
                                 print_r($response);
+	 */
+				echo "finish dologing now returning 4";
+				return array("returnCode" => 4, 'message'=>"Server received request and processed");
+
 
 			 }
 			 else{
+				 echo "finish dologing now returning 9";
+
+				 /*
 	        $client = new rabbitMQClient("testRabbitMQ.ini","SQLDBR");
 
  				echo "new client is created \n";
@@ -99,24 +109,41 @@ function requestProcessor($request)
                                 echo "new request has been sent";
                                 print_r($response);
 
+				  */
+				return array("returnCode" => 9, 'message'=>"Server received request and processed");
+
 			 }
 			 break;
 
 
-		 case "Signup":
+		 case "signup":
 			  echo "Sign up validation \n";
-			  return doSignup($request['username'], $request['password']); 
+			  if (doSignup($request['username'], $request['password']))
+			  {
+				  echo "finished sign up returning code 5 \n";
+				  return array("returnCode" => 5, 'message'=>"Server received request and processed");
+
+			  }
+			  else
+			  {
+				  echo "Can't do do sign up now returning 6 \n";
+                                  return array("returnCode" => 6, 'message'=>"Server received request and processed");
+
+
+
+
+			  }
 		  case "validate_session<br>":
 			  echo "Validate session";
 		    	  return doValidate($request['sessionId']);
 	}
 	
 	
-	return array("returnCode" => '0', 'message'=>"Server received request and processed"); 
+	return array("returnCode" => 999, 'message'=>"unknown request type"); 
 }
 
 
-$server = new rabbitMQServer("testRabbitMQ.ini","SQLDB");
+$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 
 $server->process_requests('requestProcessor');
 //$response = $client->send_request($reqtrue);
