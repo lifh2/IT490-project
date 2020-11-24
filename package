@@ -1,0 +1,34 @@
+#!/bin/bash
+
+
+while getopts v:t: option
+do
+	case "${option}"
+		in 
+		v) VERSION=${OPTARG};;
+		t) TYPE=${OPTARG};;
+	esac
+done
+
+echo "$TYPE"
+
+case "$TYPE"
+	in
+	APA) source <(grep = <(grep -A1 '\[APA\]' DeployPack.ini));;
+	DB) source <(grep = <(grep -A1 '\[DB\]' DeployPack.ini));;
+	BROKER) source <(grep = <(grep -A1 '\[BROKER\]' DeployPack.ini));;
+	DMZ) source <(grep = <(grep -A1 '\[DMZ\]' DeployPack.ini));;
+esac
+
+SENDIP=$HOSTIP
+echo "$SENDIP"
+
+echo "Begin packaging"
+tar -czvf FronEndv"$VERSION".tar.gz /var/www/html
+
+echo "front end has been packaged and ready for sending..."
+
+scp FronEndv"$VERSION".tar.gz luke@$SENDIP:/home/luke/depZone
+
+echo "sent to deployment server...."
+
