@@ -18,11 +18,14 @@ echo "<br> username is: $username" ;
 $password = $_GET ['password'] ;
 echo "<br> passwrd is : $password" ;
 
+$choice = $_GET ['choice'] ;
+echo "<br> choice is : $choice" ;
+
 $client = new rabbitMQClient("/home/luke/git/rabbitmqphp_example/testRabbitMQ.ini","testServer");
 
 
 $request = array();
-$request['type'] = "login";
+$request['type'] = "$choice";
 $request['username'] = "$username";
 $request['password'] = "$password";
 $request['message'] = "HI";
@@ -60,7 +63,15 @@ sendRequest();
 <h1>STNK Login Page</h1>
 <form action = "login.php">
         <input type = "text" name="username">USER<br><br>
-        <input type = "text" name="password">PASS<br><br>
+	<input type = "text" name="password">PASS<br><br>
+
+<select name="choice">
+        <option value="0"> Choose </option>
+        <option value="login"> Login </option>
+        <option value="signup"> Register </option>
+</select>
+
+
         <input type = submit>
 </form>
 </body>
