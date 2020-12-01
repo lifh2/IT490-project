@@ -12,44 +12,63 @@ require_once('mysqlConnect.php');
 function doLogin($username, $password){
    $db = dbconnect();
    
-   $query = "select * from users where username = '$username' and password='$password';";
+   $query = "select * from users where username = '$username';";
    $response = $db->query($query);
    $numrows = mysqli_num_rows($response);
    echo "num of rows returned: ". $numrows . "\n";
    $resArray = $response -> fetch_assoc();
-  // printf("print this array: \n", $resArray);
+  
    
    if ($numrows > 0)
    {
-      //if(password_verify($password, $resArray['password'])){
-         echo "login is verified \n";
-         return  true;
+         if(password_verify($password, $resArray['password']))
+	 {
+		 echo "login is verified \n";
+		 return  true;
+	 }
    }
-   else
-   {
-         echo "Invalid inforamtion \n";
-         return false;
-   }
+   echo "Invalid inforamtion \n";
+   return false;
 }
-
 
 
 //////// User Sign up function///////
 
 function doSignup($username, $password){
-	//$hash = password_hash($password, PASSWORD_DEFAULT);
-	//echo "$password". " :"."$hash". "\n";
 
-        //$key = md5(time().$username);
-        $db = dbconnect();
-	$query = "INSERT INTO users (username, password) VALUES ('$username', '$password');";
+	if (empty($username) || empty($password))
+	{
+		echo "please fill in username or password \n";
+		return false;
+	}
+
+	$hash = password_hash($password, PASSWORD_DEFAULT);
+	echo "$password". " :"."$hash". "\n";
+	$key = md5(time().$username);
+
+	$db = dbconnect();
+
+	// check db to see if user does not exist
+	
+	$user_check = "SELECT * FROM users WHERE username = '$username';";
+	$result= mysqli_query($db, $user_check);
+	$array=mysqli_fetch_assoc($result);
+
+	if($array > 0)
+	{
+		echo "User already exists \n";
+		return false;
+	}
+	$query = "INSERT INTO users (username, password) VALUES ('$username', '$hash');";
         if (mysqli_query($db, $query))
         {
-                echo "User has successfully registered \n";
+		echo "User has successfully registered \n";
+		return true;
         }
         else
         {
-                echo "Error: " . $query . "<br>" . mysqli_error($db);
+		echo "Error: " . $query . "<br>" . mysqli_error($db);
+		return false;
         }
         $db->close();
 }
@@ -69,14 +88,9 @@ function stockData($stockname, $price){
         else
         {
 		echo "Error: " . $query . "<br>" . mysqli_error($db);
-		return false;
+		
         }
         $db->close();
-
-
 }
-
-
-
 
 ?>

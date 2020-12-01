@@ -18,6 +18,7 @@ echo "<br> username is: $username" ;
 $password = $_GET ['password'] ;
 echo "<br> passwrd is : $password" ;
 
+<<<<<<< HEAD
 
 $choice = $_GET ['choice'] ;
 echo "<br> choice is : $choice";
@@ -29,6 +30,18 @@ $request = array();
 $request['type'] = $choice;
 $request['username'] = $username;
 $request['password'] = $password;
+=======
+$choice = $_GET ['choice'] ;
+echo "<br> choice is : $choice" ;
+
+$client = new rabbitMQClient("/home/luke/git/rabbitmqphp_example/testRabbitMQ.ini","testServer");
+
+
+$request = array();
+$request['type'] = "$choice";
+$request['username'] = "$username";
+$request['password'] = "$password";
+>>>>>>> 8d1b52c9437318573483916cad768e870c64250e
 $request['message'] = "HI";
 $response = $client->send_request($request);
 echo "Client request sent!";
@@ -65,3 +78,28 @@ elseif($returnCode == 6)
 
 sendRequest();
 ?>
+<<<<<<< HEAD
+=======
+
+<html>
+<h1>Handling Login request....</h1>
+<h1>STNK Login Page</h1>
+<form action = "login.php">
+        <input type = "text" name="username">USER<br><br>
+	<input type = "text" name="password">PASS<br><br>
+
+<select name="choice">
+        <option value="0"> Choose </option>
+        <option value="login"> Login </option>
+        <option value="signup"> Register </option>
+</select>
+
+
+        <input type = submit>
+</form>
+</body>
+
+
+
+</html>
+>>>>>>> 8d1b52c9437318573483916cad768e870c64250e

@@ -6,35 +6,6 @@ require_once('rabbitMQLib.inc');
 require_once('dbWorks.php');
 
 
-//do a function that uploal logs to a local file
-function errorlogger($msg)
-{
-          //path of the log file
-        $log_file = '/var/log/rabbit_log/log_rabbit.log';
-           //set error log to be active
-        ini_set("logr_errors", TRUE);
-          // setting the logging to be active
-        ini_set('error_log', $log_file);
-        // logging thhe error
-        $ermsg = print_r($msg, true);
-
-	error_log($ermsg);
-
-        $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-        echo "new client is created to sent error to broker\n";
-
-        $request = array();
-        $request['type'] = "logger";
-        $request['error'] = $ermsg;
-
-        var_dump($request);
-        $response = $client->send_request($request);
-        echo "error request has been sent to broker";
-        print_r($response);
-
-}
-
-
 
 
 
@@ -68,55 +39,53 @@ function requestProcessor($request)
 
 		 case "login":
 			 echo "Login validation \n"; 
-		         if(doLogin($request['username'], $request['password']))
+
+
+			 if(doLogin($request['username'], $request['password']))
 			 {
-		$client = new rabbitMQClient("testRabbitMQ.ini","SQLDBR");
-				echo "new client is created \n";
-	
-              			$reqtrue = array();
-				$reqtrue['type'] = "login";
-				$reqtrue['username'] = $request['username'];
-				$reqtrue['password'] = $request['password'];
-				$reqtrue['message'] = "1";
-				var_dump($reqtrue);
-				$response = $client->send_request($reqtrue);
-                                echo "new request has been sent";
-                                print_r($response);
+				echo "finish dologing now returning 4";
+				return array("returnCode" => 4, 'message'=>"Server received request and processed");
+
 
 			 }
 			 else{
-	        $client = new rabbitMQClient("testRabbitMQ.ini","SQLDBR");
+				 echo "finish dologing now returning 9";
 
- 				echo "new client is created \n";
-
-                                $reqtrue = array();
-                                $reqtrue['type'] = "login";
-                                $reqtrue['username'] = $request['username']; 
-                                $reqtrue['password'] =  $request['password'];
-				$reqtrue['message'] = "0";
-				var_dump($reqtrue);
-                                $response = $client->send_request($reqtrue);
-                                echo "new request has been sent";
-                                print_r($response);
+	
+				return array("returnCode" => 9, 'message'=>"Server received request and processed");
 
 			 }
 			 break;
 
 
-		 case "Signup":
+		 case "signup":
 			  echo "Sign up validation \n";
-			  return doSignup($request['username'], $request['password']); 
+			  if (doSignup($request['username'], $request['password']))
+			  {
+				  echo "finished sign up returning code 5 \n";
+				  return array("returnCode" => 5, 'message'=>"Server received request and processed");
+
+			  }
+			  else
+			  {
+				  echo "Can't do do sign up now returning 6 \n";
+                                  return array("returnCode" => 6, 'message'=>"Server received request and processed");
+
+
+
+
+			  }
 		  case "validate_session<br>":
 			  echo "Validate session";
 		    	  return doValidate($request['sessionId']);
 	}
 	
 	
-	return array("returnCode" => '0', 'message'=>"Server received request and processed"); 
+	return array("returnCode" => 999, 'message'=>"unknown request type"); 
 }
 
 
-$server = new rabbitMQServer("testRabbitMQ.ini","SQLDB");
+$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 
 $server->process_requests('requestProcessor');
 //$response = $client->send_request($reqtrue);

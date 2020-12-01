@@ -1,0 +1,374 @@
+[1606231364] Nagios 4.4.4 starting... (PID=23078)
+[1606231364] Local time is Tue Nov 24 10:22:44 EST 2020
+[1606231364] LOG VERSION: 2.0
+[1606231364] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606231364] qh: core query handler registered
+[1606231364] qh: echo service query handler registered
+[1606231364] qh: help for the query handler registered
+[1606231364] wproc: Successfully registered manager as @wproc with query handler
+[1606231364] wproc: Registry request: name=Core Worker 23081;pid=23081
+[1606231364] wproc: Registry request: name=Core Worker 23080;pid=23080
+[1606231364] wproc: Registry request: name=Core Worker 23079;pid=23079
+[1606231364] wproc: Registry request: name=Core Worker 23082;pid=23082
+[1606231364] Successfully launched command file worker with pid 23085
+[1606231364] SERVICE ALERT: localhost;SSH;CRITICAL;SOFT;1;connect to address 127.0.0.1 and port 22: Connection refused
+[1606231424] SERVICE ALERT: localhost;SSH;CRITICAL;SOFT;2;connect to address 127.0.0.1 and port 22: Connection refused
+[1606231484] SERVICE ALERT: localhost;SSH;CRITICAL;SOFT;3;connect to address 127.0.0.1 and port 22: Connection refused
+[1606231544] SERVICE ALERT: localhost;SSH;CRITICAL;HARD;4;connect to address 127.0.0.1 and port 22: Connection refused
+[1606234964] Auto-save of retention data completed successfully.
+[1606246147] Nagios 4.4.4 starting... (PID=615)
+[1606246147] Local time is Tue Nov 24 14:29:07 EST 2020
+[1606246147] LOG VERSION: 2.0
+[1606246147] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606246147] qh: core query handler registered
+[1606246147] qh: echo service query handler registered
+[1606246147] qh: help for the query handler registered
+[1606246147] wproc: Successfully registered manager as @wproc with query handler
+[1606246147] wproc: Registry request: name=Core Worker 622;pid=622
+[1606246147] wproc: Registry request: name=Core Worker 618;pid=618
+[1606246147] wproc: Registry request: name=Core Worker 616;pid=616
+[1606246147] wproc: Registry request: name=Core Worker 617;pid=617
+[1606246147] Successfully launched command file worker with pid 652
+[1606246147] SERVICE ALERT: localhost;HTTP;CRITICAL;SOFT;1;connect to address 127.0.0.1 and port 80: Connection refused
+[1606246207] SERVICE ALERT: localhost;HTTP;OK;SOFT;2;HTTP OK: HTTP/1.1 200 OK - 1098 bytes in 0.006 second response time
+[1606247926] Caught SIGTERM, shutting down...
+[1606247926] Successfully shutdown... (PID=615)
+[1606249169] Nagios 4.4.4 starting... (PID=3637)
+[1606249169] Local time is Tue Nov 24 15:19:29 EST 2020
+[1606249169] LOG VERSION: 2.0
+[1606249169] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606249169] qh: core query handler registered
+[1606249169] qh: echo service query handler registered
+[1606249169] qh: help for the query handler registered
+[1606249169] wproc: Successfully registered manager as @wproc with query handler
+[1606249169] wproc: Registry request: name=Core Worker 3641;pid=3641
+[1606249169] wproc: Registry request: name=Core Worker 3640;pid=3640
+[1606249169] wproc: Registry request: name=Core Worker 3639;pid=3639
+[1606249169] wproc: Registry request: name=Core Worker 3638;pid=3638
+[1606249169] Error: Invalid host object directive 'notitication_period'.
+[1606249169] Error: Could not add object property in file '/usr/local/nagios/etc/servers/luke-VirtualBox.cfg' on line 9.
+[1606249169] Error: Invalid max_check_attempts value for host 'localhost'
+[1606249169] Error: Could not register host (config file '/usr/local/nagios/etc/objects/localhost.cfg', starting on line 21)
+[1606249169] Bailing out due to one or more errors encountered in the configuration files. Run Nagios from the command line with the -v option to verify your config before restarting. (PID=3637)
+[1606249194] Nagios 4.4.4 starting... (PID=3654)
+[1606249194] Local time is Tue Nov 24 15:19:54 EST 2020
+[1606249194] LOG VERSION: 2.0
+[1606249194] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606249194] qh: core query handler registered
+[1606249194] qh: echo service query handler registered
+[1606249194] qh: help for the query handler registered
+[1606249194] wproc: Successfully registered manager as @wproc with query handler
+[1606249194] wproc: Registry request: name=Core Worker 3657;pid=3657
+[1606249194] wproc: Registry request: name=Core Worker 3658;pid=3658
+[1606249194] wproc: Registry request: name=Core Worker 3655;pid=3655
+[1606249194] wproc: Registry request: name=Core Worker 3656;pid=3656
+[1606249194] Error: Invalid host object directive 'notitication_period'.
+[1606249194] Error: Could not add object property in file '/usr/local/nagios/etc/servers/luke-VirtualBox.cfg' on line 9.
+[1606249194] Error: Invalid max_check_attempts value for host 'localhost'
+[1606249194] Error: Could not register host (config file '/usr/local/nagios/etc/objects/localhost.cfg', starting on line 21)
+[1606249194] Bailing out due to one or more errors encountered in the configuration files. Run Nagios from the command line with the -v option to verify your config before restarting. (PID=3654)
+[1606250019] Nagios 4.4.4 starting... (PID=3926)
+[1606250019] Local time is Tue Nov 24 15:33:39 EST 2020
+[1606250019] LOG VERSION: 2.0
+[1606250019] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606250019] qh: core query handler registered
+[1606250019] qh: echo service query handler registered
+[1606250019] qh: help for the query handler registered
+[1606250019] wproc: Successfully registered manager as @wproc with query handler
+[1606250019] wproc: Registry request: name=Core Worker 3930;pid=3930
+[1606250019] wproc: Registry request: name=Core Worker 3929;pid=3929
+[1606250019] wproc: Registry request: name=Core Worker 3928;pid=3928
+[1606250019] wproc: Registry request: name=Core Worker 3927;pid=3927
+[1606250019] Error: Unexpected token or statement in file '/usr/local/nagios/etc/servers/luke-VirtualBox.cfg' on line 19.
+[1606250019] Error: Invalid max_check_attempts value for host 'localhost'
+[1606250019] Error: Could not register host (config file '/usr/local/nagios/etc/objects/localhost.cfg', starting on line 21)
+[1606250019] Bailing out due to one or more errors encountered in the configuration files. Run Nagios from the command line with the -v option to verify your config before restarting. (PID=3926)
+[1606250142] Nagios 4.4.4 starting... (PID=3998)
+[1606250142] Local time is Tue Nov 24 15:35:42 EST 2020
+[1606250142] LOG VERSION: 2.0
+[1606250142] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606250142] qh: core query handler registered
+[1606250142] qh: echo service query handler registered
+[1606250142] qh: help for the query handler registered
+[1606250142] wproc: Successfully registered manager as @wproc with query handler
+[1606250142] wproc: Registry request: name=Core Worker 4002;pid=4002
+[1606250142] wproc: Registry request: name=Core Worker 4001;pid=4001
+[1606250142] wproc: Registry request: name=Core Worker 4000;pid=4000
+[1606250142] wproc: Registry request: name=Core Worker 3999;pid=3999
+[1606250142] Successfully launched command file worker with pid 4003
+[1606250142] SERVICE ALERT: luke-VirtualBox;Load average;CRITICAL;SOFT;1;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606250142] SERVICE ALERT: luke-VirtualBox;/dev/hda1 free space;CRITICAL;SOFT;1;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606250262] SERVICE ALERT: luke-VirtualBox;Load average;CRITICAL;SOFT;2;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606250262] SERVICE ALERT: luke-VirtualBox;/dev/hda1 free space;CRITICAL;SOFT;2;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606250382] SERVICE NOTIFICATION: nagiosadmin;luke-VirtualBox;Load average;CRITICAL;notify-service-by-email;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606250382] SERVICE ALERT: luke-VirtualBox;Load average;CRITICAL;HARD;3;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606250382] wproc: NOTIFY job 4 from worker Core Worker 4002 is a non-check helper but exited with return code 127
+[1606250382] wproc:   host=luke-VirtualBox; service=Load average; contact=nagiosadmin
+[1606250382] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606250382] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606250382] wproc:   stderr line 02: /usr/bin/printf: write error: Broken pipe
+[1606250382] SERVICE NOTIFICATION: nagiosadmin;luke-VirtualBox;/dev/hda1 free space;CRITICAL;notify-service-by-email;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606250382] SERVICE ALERT: luke-VirtualBox;/dev/hda1 free space;CRITICAL;HARD;3;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606250382] wproc: NOTIFY job 4 from worker Core Worker 4001 is a non-check helper but exited with return code 127
+[1606250382] wproc:   host=luke-VirtualBox; service=/dev/hda1 free space; contact=nagiosadmin
+[1606250382] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606250382] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606250382] wproc:   stderr line 02: /usr/bin/printf: write error: Broken pipe
+[1606250642] EXTERNAL COMMAND: SEND_CUSTOM_HOST_NOTIFICATION;luke-VirtualBox;0;nagiosAdmin;test noti
+[1606250642] HOST NOTIFICATION: nagiosadmin;luke-VirtualBox;CUSTOM (UP);notify-host-by-email;PING OK - Packet loss = 0%, RTA = 35.35 ms;nagiosAdmin;test noti
+[1606250642] wproc: NOTIFY job 7 from worker Core Worker 4002 is a non-check helper but exited with return code 127
+[1606250642] wproc:   host=luke-VirtualBox; service=(none); contact=nagiosadmin
+[1606250642] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606250642] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606250642] wproc:   stderr line 02: /usr/bin/printf: write error: Broken pipe
+[1606252537] Caught SIGTERM, shutting down...
+[1606252537] Caught SIGTERM, shutting down...
+[1606252537] Successfully shutdown... (PID=3998)
+[1606252537] Nagios 4.4.4 starting... (PID=4961)
+[1606252537] Local time is Tue Nov 24 16:15:37 EST 2020
+[1606252537] LOG VERSION: 2.0
+[1606252537] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606252537] qh: core query handler registered
+[1606252537] qh: echo service query handler registered
+[1606252537] qh: help for the query handler registered
+[1606252537] wproc: Successfully registered manager as @wproc with query handler
+[1606252537] wproc: Registry request: name=Core Worker 4965;pid=4965
+[1606252537] wproc: Registry request: name=Core Worker 4963;pid=4963
+[1606252537] wproc: Registry request: name=Core Worker 4964;pid=4964
+[1606252537] wproc: Registry request: name=Core Worker 4962;pid=4962
+[1606252537] Successfully launched command file worker with pid 4966
+[1606252853] Caught SIGTERM, shutting down...
+[1606252853] Caught SIGTERM, shutting down...
+[1606252853] wproc: Socket to worker Core Worker 4965 broken, removing
+[1606252853] wproc: Socket to worker Core Worker 4963 broken, removing
+[1606252853] wproc: Socket to worker Core Worker 4962 broken, removing
+[1606252853] wproc: Socket to worker Core Worker 4964 broken, removing
+[1606252853] Successfully shutdown... (PID=4961)
+[1606252853] Nagios 4.4.4 starting... (PID=5105)
+[1606252853] Local time is Tue Nov 24 16:20:53 EST 2020
+[1606252853] LOG VERSION: 2.0
+[1606252853] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606252853] qh: core query handler registered
+[1606252853] qh: echo service query handler registered
+[1606252853] qh: help for the query handler registered
+[1606252853] wproc: Successfully registered manager as @wproc with query handler
+[1606252853] wproc: Registry request: name=Core Worker 5110;pid=5110
+[1606252853] wproc: Registry request: name=Core Worker 5109;pid=5109
+[1606252853] wproc: Registry request: name=Core Worker 5107;pid=5107
+[1606252853] wproc: Registry request: name=Core Worker 5108;pid=5108
+[1606252853] Successfully launched command file worker with pid 5111
+[1606253023] Caught SIGTERM, shutting down...
+[1606253023] Caught SIGTERM, shutting down...
+[1606253023] Successfully shutdown... (PID=5105)
+[1606253023] Nagios 4.4.4 starting... (PID=5183)
+[1606253023] Local time is Tue Nov 24 16:23:43 EST 2020
+[1606253023] LOG VERSION: 2.0
+[1606253023] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606253023] qh: core query handler registered
+[1606253023] qh: echo service query handler registered
+[1606253023] qh: help for the query handler registered
+[1606253023] wproc: Successfully registered manager as @wproc with query handler
+[1606253023] wproc: Registry request: name=Core Worker 5186;pid=5186
+[1606253023] wproc: Registry request: name=Core Worker 5185;pid=5185
+[1606253023] wproc: Registry request: name=Core Worker 5187;pid=5187
+[1606253023] wproc: Registry request: name=Core Worker 5184;pid=5184
+[1606253023] Successfully launched command file worker with pid 5188
+[1606253023] SERVICE ALERT: it490-VirtualBox;/dev/hda1 free space;CRITICAL;SOFT;1;(No output on stdout) stderr: connect to address 10.192.230.63 port 5666: Connection refused
+[1606253023] SERVICE ALERT: it490-VirtualBox;Load average;CRITICAL;SOFT;1;(No output on stdout) stderr: connect to address 10.192.230.63 port 5666: Connection refused
+[1606253053] wproc: Core Worker 5187: job 0 (pid=5191) timed out. Killing it
+[1606253053] wproc: CHECK job 0 from worker Core Worker 5187 timed out after 30.03s
+[1606253053] wproc:   host=it490-VirtualBox; service=(null);
+[1606253053] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606253053] Warning: Check of host 'it490-VirtualBox' timed out after 30.03 seconds
+[1606253053] HOST ALERT: it490-VirtualBox;DOWN;SOFT;1;(Host check timed out after 30.03 seconds)
+[1606253053] wproc: Core Worker 5187: job 0 (pid=5191): Dormant child reaped
+[1606253143] wproc: Core Worker 5184: job 0 (pid=5231) timed out. Killing it
+[1606253143] wproc: CHECK job 0 from worker Core Worker 5184 timed out after 30.01s
+[1606253143] wproc:   host=it490-VirtualBox; service=(null);
+[1606253143] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606253143] Warning: Check of host 'it490-VirtualBox' timed out after 30.01 seconds
+[1606253143] HOST ALERT: it490-VirtualBox;DOWN;SOFT;2;(Host check timed out after 30.01 seconds)
+[1606253143] SERVICE ALERT: it490-VirtualBox;/dev/hda1 free space;CRITICAL;HARD;3;(No output on stdout) stderr: connect to address 10.192.230.63 port 5666: Connection refused
+[1606253143] wproc: Core Worker 5184: job 0 (pid=5231): Dormant child reaped
+[1606253143] SERVICE ALERT: it490-VirtualBox;Load average;CRITICAL;HARD;3;(No output on stdout) stderr: connect to address 10.192.230.63 port 5666: Connection refused
+[1606253164] EXTERNAL COMMAND: SCHEDULE_FORCED_HOST_CHECK;it490-VirtualBox;1606253157
+[1606253194] wproc: Core Worker 5186: job 4 (pid=5267) timed out. Killing it
+[1606253194] wproc: CHECK job 4 from worker Core Worker 5186 timed out after 30.01s
+[1606253194] wproc:   host=it490-VirtualBox; service=(null);
+[1606253194] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606253194] Warning: Check of host 'it490-VirtualBox' timed out after 30.01 seconds
+[1606253194] HOST ALERT: it490-VirtualBox;DOWN;SOFT;3;(Host check timed out after 30.01 seconds)
+[1606253194] wproc: Core Worker 5186: job 4 (pid=5267): Dormant child reaped
+[1606253207] EXTERNAL COMMAND: SCHEDULE_FORCED_HOST_CHECK;it490-VirtualBox;1606253204
+[1606253237] wproc: Core Worker 5185: job 4 (pid=5282) timed out. Killing it
+[1606253237] wproc: CHECK job 4 from worker Core Worker 5185 timed out after 30.03s
+[1606253237] wproc:   host=it490-VirtualBox; service=(null);
+[1606253237] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606253237] Warning: Check of host 'it490-VirtualBox' timed out after 30.03 seconds
+[1606253237] HOST ALERT: it490-VirtualBox;DOWN;SOFT;4;(Host check timed out after 30.03 seconds)
+[1606253237] wproc: Core Worker 5185: job 4 (pid=5282): Dormant child reaped
+[1606253318] Caught SIGTERM, shutting down...
+[1606253318] Caught SIGTERM, shutting down...
+[1606253318] Successfully shutdown... (PID=5183)
+[1606253318] Nagios 4.4.4 starting... (PID=5354)
+[1606253318] Local time is Tue Nov 24 16:28:38 EST 2020
+[1606253318] LOG VERSION: 2.0
+[1606253318] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606253318] qh: core query handler registered
+[1606253318] qh: echo service query handler registered
+[1606253318] qh: help for the query handler registered
+[1606253318] wproc: Successfully registered manager as @wproc with query handler
+[1606253318] wproc: Registry request: name=Core Worker 5358;pid=5358
+[1606253318] wproc: Registry request: name=Core Worker 5357;pid=5357
+[1606253318] wproc: Registry request: name=Core Worker 5359;pid=5359
+[1606253318] wproc: Registry request: name=Core Worker 5356;pid=5356
+[1606253318] Successfully launched command file worker with pid 5360
+[1606253322] HOST ALERT: it490-VirtualBox;UP;SOFT;1;PING OK - Packet loss = 0%, RTA = 32.16 ms
+[1606253504] Nagios 4.4.4 starting... (PID=446)
+[1606253504] Local time is Tue Nov 24 16:31:44 EST 2020
+[1606253504] LOG VERSION: 2.0
+[1606253504] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606253504] qh: core query handler registered
+[1606253504] qh: echo service query handler registered
+[1606253504] qh: help for the query handler registered
+[1606253504] wproc: Successfully registered manager as @wproc with query handler
+[1606253504] wproc: Registry request: name=Core Worker 453;pid=453
+[1606253504] wproc: Registry request: name=Core Worker 454;pid=454
+[1606253504] wproc: Registry request: name=Core Worker 451;pid=451
+[1606253504] wproc: Registry request: name=Core Worker 452;pid=452
+[1606253504] Successfully launched command file worker with pid 481
+[1606253505] HOST NOTIFICATION: nagiosadmin;it490-VirtualBox;DOWN;notify-host-by-email;CRITICAL - Network Unreachable (10.192.230.64)
+[1606253505] HOST ALERT: it490-VirtualBox;DOWN;HARD;5;CRITICAL - Network Unreachable (10.192.230.64)
+[1606253505] SERVICE ALERT: localhost;HTTP;CRITICAL;SOFT;1;connect to address 127.0.0.1 and port 80: Connection refused
+[1606253505] wproc: NOTIFY job 2 from worker Core Worker 452 is a non-check helper but exited with return code 127
+[1606253505] wproc:   host=it490-VirtualBox; service=(none); contact=nagiosadmin
+[1606253505] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606253505] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606253505] wproc:   stderr line 02: /usr/bin/printf: write error: Broken pipe
+[1606253565] SERVICE ALERT: localhost;HTTP;OK;SOFT;2;HTTP OK: HTTP/1.1 200 OK - 1098 bytes in 0.007 second response time
+[1606253734] wproc: Core Worker 452: job 3 (pid=2336) timed out. Killing it
+[1606253734] wproc: CHECK job 3 from worker Core Worker 452 timed out after 30.03s
+[1606253734] wproc:   host=luke-VirtualBox; service=(null);
+[1606253734] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606253734] Warning: Check of host 'luke-VirtualBox' timed out after 30.03 seconds
+[1606253734] HOST ALERT: luke-VirtualBox;DOWN;SOFT;1;(Host check timed out after 30.03 seconds)
+[1606253735] wproc: Core Worker 452: job 3 (pid=2336): Dormant child reaped
+[1606253824] wproc: Core Worker 451: job 4 (pid=2366) timed out. Killing it
+[1606253824] wproc: CHECK job 4 from worker Core Worker 451 timed out after 30.02s
+[1606253824] wproc:   host=luke-VirtualBox; service=(null);
+[1606253824] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606253824] Warning: Check of host 'luke-VirtualBox' timed out after 30.02 seconds
+[1606253824] HOST ALERT: luke-VirtualBox;DOWN;SOFT;2;(Host check timed out after 30.02 seconds)
+[1606253825] wproc: Core Worker 451: job 4 (pid=2366): Dormant child reaped
+[1606253835] wproc: Core Worker 451: job 6 (pid=2385) timed out. Killing it
+[1606253835] wproc: CHECK job 6 from worker Core Worker 451 timed out after 30.02s
+[1606253835] wproc:   host=it490-VirtualBox; service=(null);
+[1606253835] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606253835] Warning: Check of host 'it490-VirtualBox' timed out after 30.02 seconds
+[1606253914] wproc: Core Worker 453: job 7 (pid=2430) timed out. Killing it
+[1606253914] wproc: CHECK job 7 from worker Core Worker 453 timed out after 30.02s
+[1606253914] wproc:   host=luke-VirtualBox; service=(null);
+[1606253914] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606253914] Warning: Check of host 'luke-VirtualBox' timed out after 30.02 seconds
+[1606253914] HOST ALERT: luke-VirtualBox;DOWN;SOFT;3;(Host check timed out after 30.02 seconds)
+[1606253915] wproc: Core Worker 453: job 7 (pid=2430): Dormant child reaped
+[1606253943] EXTERNAL COMMAND: SCHEDULE_FORCED_HOST_CHECK;luke-VirtualBox;1606253942
+[1606253973] wproc: Core Worker 451: job 7 (pid=2457) timed out. Killing it
+[1606253973] wproc: CHECK job 7 from worker Core Worker 451 timed out after 30.03s
+[1606253973] wproc:   host=luke-VirtualBox; service=(null);
+[1606253973] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606253973] Warning: Check of host 'luke-VirtualBox' timed out after 30.03 seconds
+[1606253973] HOST ALERT: luke-VirtualBox;DOWN;SOFT;4;(Host check timed out after 30.03 seconds)
+[1606253973] wproc: Core Worker 451: job 7 (pid=2457): Dormant child reaped
+[1606253978] Caught SIGTERM, shutting down...
+[1606253978] Caught SIGTERM, shutting down...
+[1606253978] Successfully shutdown... (PID=446)
+[1606253978] Nagios 4.4.4 starting... (PID=2522)
+[1606253978] Local time is Tue Nov 24 16:39:38 EST 2020
+[1606253978] LOG VERSION: 2.0
+[1606253978] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606253978] qh: core query handler registered
+[1606253978] qh: echo service query handler registered
+[1606253978] qh: help for the query handler registered
+[1606253978] wproc: Successfully registered manager as @wproc with query handler
+[1606253978] wproc: Registry request: name=Core Worker 2525;pid=2525
+[1606253978] wproc: Registry request: name=Core Worker 2526;pid=2526
+[1606253978] wproc: Registry request: name=Core Worker 2524;pid=2524
+[1606253978] wproc: Registry request: name=Core Worker 2523;pid=2523
+[1606253978] Successfully launched command file worker with pid 2527
+[1606254037] HOST ALERT: luke-VirtualBox;UP;SOFT;1;PING OK - Packet loss = 0%, RTA = 37.91 ms
+[1606254104] SERVICE NOTIFICATION: nagiosadmin;luke-VirtualBox;/dev/hda1 free space;CRITICAL;notify-service-by-email;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606254104] wproc: NOTIFY job 2 from worker Core Worker 2524 is a non-check helper but exited with return code 127
+[1606254104] wproc:   host=luke-VirtualBox; service=/dev/hda1 free space; contact=nagiosadmin
+[1606254104] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606254104] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606254104] wproc:   stderr line 02: /usr/bin/printf: write error: Broken pipe
+[1606254104] SERVICE NOTIFICATION: nagiosadmin;luke-VirtualBox;Load average;CRITICAL;notify-service-by-email;(No output on stdout) stderr: connect to address 10.192.229.105 port 5666: Connection refused
+[1606254104] wproc: NOTIFY job 2 from worker Core Worker 2523 is a non-check helper but exited with return code 127
+[1606254104] wproc:   host=luke-VirtualBox; service=Load average; contact=nagiosadmin
+[1606254104] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606254104] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606254104] wproc:   stderr line 02: /usr/bin/printf: write error: Broken pipe
+[1606254109] HOST NOTIFICATION: nagiosadmin;it490-VirtualBox;UP;notify-host-by-email;PING OK - Packet loss = 0%, RTA = 32.33 ms
+[1606254109] HOST ALERT: it490-VirtualBox;UP;HARD;1;PING OK - Packet loss = 0%, RTA = 32.33 ms
+[1606254109] wproc: NOTIFY job 3 from worker Core Worker 2524 is a non-check helper but exited with return code 127
+[1606254109] wproc:   host=it490-VirtualBox; service=(none); contact=nagiosadmin
+[1606254109] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606254109] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606254109] wproc:   stderr line 02: /usr/bin/printf: write error: Broken pipe
+[1606254343] SERVICE NOTIFICATION: nagiosadmin;it490-VirtualBox;Load average;CRITICAL;notify-service-by-email;(No output on stdout) stderr: connect to address 10.192.230.64 port 5666: Connection refused
+[1606254343] SERVICE NOTIFICATION: nagiosadmin;it490-VirtualBox;/dev/hda1 free space;CRITICAL;notify-service-by-email;(No output on stdout) stderr: connect to address 10.192.230.64 port 5666: Connection refused
+[1606254343] wproc: NOTIFY job 5 from worker Core Worker 2525 is a non-check helper but exited with return code 127
+[1606254343] wproc:   host=it490-VirtualBox; service=/dev/hda1 free space; contact=nagiosadmin
+[1606254343] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606254343] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606254343] wproc: NOTIFY job 4 from worker Core Worker 2523 is a non-check helper but exited with return code 127
+[1606254343] wproc:   host=it490-VirtualBox; service=Load average; contact=nagiosadmin
+[1606254343] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606254343] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606254343] wproc:   stderr line 02: /usr/bin/printf: write error: Broken pipe
+[1606255987] Nagios 4.4.4 starting... (PID=511)
+[1606255987] Local time is Tue Nov 24 17:13:07 EST 2020
+[1606255987] LOG VERSION: 2.0
+[1606255987] qh: Socket '/usr/local/nagios/var/rw/nagios.qh' successfully initialized
+[1606255987] qh: core query handler registered
+[1606255987] qh: echo service query handler registered
+[1606255987] qh: help for the query handler registered
+[1606255987] wproc: Successfully registered manager as @wproc with query handler
+[1606255987] wproc: Registry request: name=Core Worker 515;pid=515
+[1606255987] wproc: Registry request: name=Core Worker 517;pid=517
+[1606255987] wproc: Registry request: name=Core Worker 514;pid=514
+[1606255987] wproc: Registry request: name=Core Worker 516;pid=516
+[1606255987] Successfully launched command file worker with pid 546
+[1606255988] HOST NOTIFICATION: nagiosadmin;it490-VirtualBox;DOWN;notify-host-by-email;CRITICAL - Network Unreachable (10.192.230.64)
+[1606255988] SERVICE ALERT: localhost;HTTP;CRITICAL;SOFT;1;connect to address 127.0.0.1 and port 80: Connection refused
+[1606255988] wproc: NOTIFY job 3 from worker Core Worker 517 is a non-check helper but exited with return code 127
+[1606255988] wproc:   host=it490-VirtualBox; service=(none); contact=nagiosadmin
+[1606255988] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606255988] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606256048] SERVICE ALERT: localhost;HTTP;OK;SOFT;2;HTTP OK: HTTP/1.1 200 OK - 1098 bytes in 0.004 second response time
+[1606256071] wproc: Core Worker 516: job 3 (pid=2005) timed out. Killing it
+[1606256071] wproc: CHECK job 3 from worker Core Worker 516 timed out after 30.03s
+[1606256071] wproc:   host=luke-VirtualBox; service=(null);
+[1606256071] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606256071] Warning: Check of host 'luke-VirtualBox' timed out after 30.03 seconds
+[1606256071] HOST NOTIFICATION: nagiosadmin;luke-VirtualBox;DOWN;notify-host-by-email;(Host check timed out after 30.03 seconds)
+[1606256071] HOST ALERT: luke-VirtualBox;DOWN;HARD;5;(Host check timed out after 30.03 seconds)
+[1606256071] wproc: NOTIFY job 4 from worker Core Worker 517 is a non-check helper but exited with return code 127
+[1606256071] wproc:   host=luke-VirtualBox; service=(none); contact=nagiosadmin
+[1606256071] wproc:   early_timeout=0; exited_ok=1; wait_status=32512; error_code=0;
+[1606256071] wproc:   stderr line 01: /bin/sh: 1: /bin/mail: not found
+[1606256071] wproc:   stderr line 02: /usr/bin/printf: write error: Broken pipe
+[1606256071] wproc: Core Worker 516: job 3 (pid=2005): Dormant child reaped
+[1606256317] wproc: Core Worker 515: job 5 (pid=2221) timed out. Killing it
+[1606256317] wproc: CHECK job 5 from worker Core Worker 515 timed out after 30.01s
+[1606256317] wproc:   host=it490-VirtualBox; service=(null);
+[1606256317] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606256317] Warning: Check of host 'it490-VirtualBox' timed out after 30.01 seconds
+[1606256317] wproc: Core Worker 515: job 5 (pid=2221): Dormant child reaped
+[1606256401] wproc: Core Worker 515: job 7 (pid=2255) timed out. Killing it
+[1606256401] wproc: CHECK job 7 from worker Core Worker 515 timed out after 30.02s
+[1606256401] wproc:   host=luke-VirtualBox; service=(null);
+[1606256401] wproc:   early_timeout=1; exited_ok=0; wait_status=0; error_code=62;
+[1606256401] Warning: Check of host 'luke-VirtualBox' timed out after 30.02 seconds
+[1606256401] wproc: Core Worker 515: job 7 (pid=2255): Dormant child reaped
