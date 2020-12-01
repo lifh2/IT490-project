@@ -1,8 +1,9 @@
 #!/usr/bin/php
 <?php
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
+require_once('/home/luke/git/rabbitmqphp_example/path.inc');
+require_once('/home/luke/git/rabbitmqphp_example/get_host_info.inc');
+require_once('/home/luke/git/rabbitmqphp_example/rabbitMQLib.inc');
+
 
 
 //do a function that uploal logs to a local file
@@ -25,7 +26,7 @@ function errorlogger($msg)
 
 function sendErrorLog($ermsg)
 {
-        $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+        $client = new rabbitMQClient("/home/luke/git/rabbitmqphp_example/testRabbitMQ.ini","APALog");
         echo "new client is created to sent error to all other machines log listeners";
 
         $request = array();
