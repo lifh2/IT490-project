@@ -75,9 +75,9 @@ function requestProcessor($request)
 
 
 			  }
-		  case "validate_session<br>":
-			  echo "Validate session";
-		    	  return doValidate($request['sessionId']);
+		  case "dashboard":
+			  echo "fetching data \n";
+		    	  return fetchdata();
 	}
 	
 	

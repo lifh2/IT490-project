@@ -93,4 +93,31 @@ function stockData($stockname, $price){
         $db->close();
 }
 
+function fetchData(){
+	$arrdata = array();
+
+
+	$con = mysqli_connect("127.0.0.1","testuser","12345","testdb");
+	if($con){
+		echo "Connected";
+	}else{
+		echo "Can not cennected";
+	}
+	$query = "SELECT * FROM stockDataLive WHERE stockname='Apple Inc.' ORDER BY timestamp ASC;";
+	$result = mysqli_query($con, $query);
+
+
+	$data = mysqli_fetch_array($result);
+
+	while($row = mysqli_fetch_array($result)){
+
+		array_push($arrdata, $arrdata['timestamp']=$row['timestamp'], $arrdata['price']=$row['price']);
+	}
+
+	return $arrdata;
+
+}
+
+
+
 ?>
