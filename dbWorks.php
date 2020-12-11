@@ -73,7 +73,7 @@ function doSignup($username, $password){
         $db->close();
 }
 
-
+doSignup("test", "test");
 ///// Function to insert API data into DB///////
   
 function stockData($stockname, $price){
@@ -99,24 +99,49 @@ function fetchData(){
 
 	$con = mysqli_connect("127.0.0.1","testuser","12345","testdb");
 	if($con){
-		echo "Connected";
+		echo "Connected \n";
 	}else{
-		echo "Can not cennected";
+		echo "Not cennected \n";
 	}
 	$query = "SELECT * FROM stockDataLive WHERE stockname='Apple Inc.' ORDER BY timestamp ASC;";
 	$result = mysqli_query($con, $query);
 
 
 	$data = mysqli_fetch_array($result);
+	array_push($arrdata, $arrdata[] = $data['stockname']);
+
 
 	while($row = mysqli_fetch_array($result)){
 
-		array_push($arrdata, $arrdata['timestamp']=$row['timestamp'], $arrdata['price']=$row['price']);
+		array_push($arrdata, $arrdata[]=$row['timestamp'], $arrdata[]=$row['price']);
 	}
 
 	return $arrdata;
 
 }
+
+// user profile
+
+function profile($username){
+   $db = dbconnect();
+   $query = "select * from profiles where username = '$username';";
+   $response = $db->query($query);
+   $numrows = mysqli_num_rows($response);
+   echo "num of rows returned: ". $numrows . "\n";
+   $resArray = $response -> fetch_assoc();
+  
+   echo "Username: ".$resArray['username']."\n";
+   echo "Stock Name: ".$resArray['stockname']."\n";
+   echo "Sock Amount: ".$resArray['amount']."\n";
+   echo "Stade date/time: " . $resArray['trade_time']. "\n"; 
+
+}
+
+profile("test");
+/*
+  select p.username, p.stockname, p.amount, p.trade_time, stockDataLive.price from profiles as p left join stockDataLive on p.stockname = stockDataLive.s
+tockname and p.trade_time=timestamp;
+ */
 
 
 
