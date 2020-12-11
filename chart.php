@@ -1,11 +1,11 @@
 #!/usr/bin/php
 <?php
 
-$db = mysqli_connect("127.0.0.1","testuser","12345","testdb");
-$query = "SELECT * FROM stockDataLive WHERE stockname='Apple Inc.' ORDER BY timestamp ASC;";
-$result= mysqli_query($db, $query);
+require_once('/home/luke/git/rabbitmqphp_example/path.inc');
+        require_once('/home/luke/git/rabbitmqphp_example/get_host_info.inc');
+        require_once('/home/luke/git/rabbitmqphp_example/rabbitMQLib.inc');
 
-echo "here i am \n";
+
 ?>
 <html>
 <head>
@@ -20,18 +20,35 @@ echo "here i am \n";
 		//document.getElementById("demo").innerHTML = "Hello";
 		
 <?php
-if($result > 0)
-{
-	while($row = mysqli_fetch_array($result))
-	{
-		echo "['".$row['timestamp']."', ".$row['price']."],";
-	
-	}
-}
+        $client = new rabbitMQClient("/home/luke/git/rabbitmqphp_example/testRabbitMQ.ini","SQLDB");
+
+        $request = array();
+        $request['type'] = "dashboard";
+        $request['message'] = "For the dashboard";
+        $response = $client->send_request($request);
+        $stockName = response['stockName'];
+       // $response = $client->publish($request);
+
+        // foreach($response as $timestamp => $price) {
+
+          // echo"['".$response['timestamp']."',".$response['price']."],";
+
+                //}
+	// var_dump($response);
+	$stockName = $response[0];
+	//echo $stockName;
+	$i = 2;
+        while($i < count($response)-1){
+                echo"['".$response[$i]."',".(float)$response[$i+1]."],";
+		$i++;
+		$i++;
+        }
+
+
 ?>
 ]);
         var options = {
-          title: 'Company Performance',
+	  title: '<?php print $stockName;?>',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
