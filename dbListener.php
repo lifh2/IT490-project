@@ -78,7 +78,16 @@ function requestProcessor($request)
 		  case "dashboard":
 			  echo "fetching data \n";
 		    	  return fetchdata();
+	
+	          case "profile":
+                          echo "Reading user profile data \n";
+			  return profile();
+	          case "newestprice":
+                          echo "Returning newest price \n";
+                          return newestprice($request['stockname']);
+
 	}
+
 	
 	
 	return array("returnCode" => 999, 'message'=>"unknown request type"); 
