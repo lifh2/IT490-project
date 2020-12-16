@@ -84,7 +84,16 @@ function requestProcessor($request)
 			  return profile();
 	          case "newestprice":
                           echo "Returning newest price \n";
-                          return newestprice($request['stockname']);
+			  return newestprice($request['stockname']);
+	          case "transaction":
+                          echo "Processing user transaction... \n";
+			  if(transaction($request)){
+				  return array("returnCode" => 1, 'message'=>"Server received request and processed");
+			  }else{
+				  return array("returnCode" => 0, 'message'=>"Server received request and processed");
+			  }
+
+
 
 	}
 

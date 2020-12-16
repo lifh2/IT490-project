@@ -44,7 +44,7 @@ function doSignup($username, $password){
 
 	$hash = password_hash($password, PASSWORD_DEFAULT);
 	echo "$password". " :"."$hash". "\n";
-	$key = md5(time().$username);
+	//$key = md5(time().$username);
 
 	$db = dbconnect();
 
@@ -132,14 +132,14 @@ function profile(){
    $numrows = mysqli_num_rows($response);
    echo "num of rows returned: ". $numrows . "\n";
    $resArray = $response -> fetch_assoc();
-   var_dump($resArray); 
-   echo "Username: ".$resArray['username']."\n";
-   echo "Stock Name: ".$resArray['stockname']."\n";
-   echo "Sock Amount: ".$resArray['amount']."\n";
-   echo "Stade Datetime: " . $resArray['trade_time']. "\n";
-   echo "Price: " . $resArray['price']. "\n";
-   echo "timestemp: ". $resArray['timestamp']. "\n";
-   
+   //var_dump($resArray); 
+   echo "\n";
+   $newarray = newestprice($resArray['stockname']);
+   $resArray['newtimestamp'] = $newarray['timestamp'];
+   $resArray['newprice'] = $newarray['price'];
+   var_dump($resArray);
+
+
    return $resArray;
 
 
@@ -165,6 +165,40 @@ function newestprice($stockname){
         
         return $data;
 }
+function transaction($request){
+	
 
+	$type = $request['type'];
+	$username = $request['username'];
+	$stockname= $request['stockname'];
+  	$amount = $request['amount'];
+        
+        //var_dump($request);
+
+
+        $con = mysqli_connect("127.0.0.1","testuser","12345","testdb");
+        if($con){
+                echo "Connected \n";
+        }else{
+                echo "Not cennected \n";
+	}
+	$query= "insert into profiles (username, stockname, amount, trade_time) values ('$username', '$stockname', $amount, now());";
+        
+		
+	if(mysqli_query($con, $query)){
+		echo "Transaction is processed successfully.". "\n";
+		return true;
+
+
+	}else{
+		echo "error: ".$con."<br>".mysql_error($con);
+		echo "Failed transaction!". "\n";
+		return false;
+
+	}
+	
+}
+
+//transaction($request);
 //newestprice('Apple Inc.');
 ?>
