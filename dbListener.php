@@ -78,7 +78,25 @@ function requestProcessor($request)
 		  case "dashboard":
 			  echo "fetching data \n";
 		    	  return fetchdata();
+	
+	          case "profile":
+                          echo "Reading user profile data \n";
+			  return profile();
+	          case "newestprice":
+                          echo "Returning newest price \n";
+			  return newestprice($request['stockname']);
+	          case "transaction":
+                          echo "Processing user transaction... \n";
+			  if(transaction($request)){
+				  return array("returnCode" => 1, 'message'=>"Server received request and processed");
+			  }else{
+				  return array("returnCode" => 0, 'message'=>"Server received request and processed");
+			  }
+
+
+
 	}
+
 	
 	
 	return array("returnCode" => 999, 'message'=>"unknown request type"); 

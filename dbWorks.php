@@ -44,7 +44,7 @@ function doSignup($username, $password){
 
 	$hash = password_hash($password, PASSWORD_DEFAULT);
 	echo "$password". " :"."$hash". "\n";
-	$key = md5(time().$username);
+	//$key = md5(time().$username);
 
 	$db = dbconnect();
 
@@ -73,7 +73,7 @@ function doSignup($username, $password){
         $db->close();
 }
 
-doSignup("test", "test");
+//doSignup("test", "test");
 ///// Function to insert API data into DB///////
   
 function stockData($stockname, $price){
@@ -122,27 +122,83 @@ function fetchData(){
 
 // user profile
 
-function profile($username){
+function profile(){
    $db = dbconnect();
-   $query = "select * from profiles where username = '$username';";
+
+   $usrdata= array();
+   $query = "select distinct p.username, p.stockname, p.amount, p.trade_time, stockDataLive.timestamp, stockDataLive.price from profiles as p left join stockDataLive on p.stockname = stockDataLive.stockname where stockDataLive.timestamp=(select timestamp from stockDataLive order by abs(timestampdiff(second, p.trade_time, timestamp)) limit 1) limit 1;";
+
    $response = $db->query($query);
    $numrows = mysqli_num_rows($response);
    echo "num of rows returned: ". $numrows . "\n";
    $resArray = $response -> fetch_assoc();
-  
-   echo "Username: ".$resArray['username']."\n";
-   echo "Stock Name: ".$resArray['stockname']."\n";
-   echo "Sock Amount: ".$resArray['amount']."\n";
-   echo "Stade date/time: " . $resArray['trade_time']. "\n"; 
+   //var_dump($resArray); 
+   echo "\n";
+   $newarray = newestprice($resArray['stockname']);
+   $resArray['newtimestamp'] = $newarray['timestamp'];
+   $resArray['newprice'] = $newarray['price'];
+   var_dump($resArray);
+
+
+   return $resArray;
+
 
 }
 
-profile("test");
-/*
-  select p.username, p.stockname, p.amount, p.trade_time, stockDataLive.price from profiles as p left join stockDataLive on p.stockname = stockDataLive.s
-tockname and p.trade_time=timestamp;
- */
+//profile();
+function newestprice($stockname){
+        $arrdata = array();
 
 
+        $con = mysqli_connect("127.0.0.1","testuser","12345","testdb");
+        if($con){
+                echo "Connected \n";
+        }else{
+                echo "Not cennected \n";
+        }
+        $query = "SELECT  price, timestamp FROM stockDataLive WHERE timestamp=(select max(timestamp) from stockDataLive where stockname = '$stockname') and stockname = '$stockname' limit 1;";
+	$result = mysqli_query($con, $query);
 
+
+	$data = mysqli_fetch_assoc($result);
+	var_dump($data);
+        
+        return $data;
+}
+function transaction($request){
+	
+
+	$type = $request['type'];
+	$username = $request['username'];
+	$stockname= $request['stockname'];
+  	$amount = $request['amount'];
+        
+        //var_dump($request);
+
+
+        $con = mysqli_connect("127.0.0.1","testuser","12345","testdb");
+        if($con){
+                echo "Connected \n";
+        }else{
+                echo "Not cennected \n";
+	}
+	$query= "insert into profiles (username, stockname, amount, trade_time) values ('$username', '$stockname', $amount, now());";
+        
+		
+	if(mysqli_query($con, $query)){
+		echo "Transaction is processed successfully.". "\n";
+		return true;
+
+
+	}else{
+		echo "error: ".$con."<br>".mysql_error($con);
+		echo "Failed transaction!". "\n";
+		return false;
+
+	}
+	
+}
+
+//transaction($request);
+//newestprice('Apple Inc.');
 ?>
