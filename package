@@ -24,11 +24,11 @@ SENDIP=$HOSTIP
 echo "$SENDIP"
 
 echo "Begin packaging"
-tar -czvf FronEndv"$VERSION".tar.gz /var/www/html
+tar -czvf BrokerV"$VERSION".tar.gz /rabbitmqphp_example
 
-echo "front end has been packaged and ready for sending..."
+echo "broker  has been packaged and ready for sending..."
 
-scp FronEndv"$VERSION".tar.gz luke@$SENDIP:/home/luke/depZone
+scp BrokerV"$VERSION".tar.gz jojo@$SENDIP:/home/jojo/depZone
 
 echo "sent to deployment server...."
 
